@@ -4,108 +4,85 @@
 
 The **Claims Processing System** is a centralized platform developed for a U.S.-based insurance organization to efficiently manage and process insurance claims.
 
-The system consolidates data from multiple internal and external sources, including client and insurance databases, to streamline the claims lifecycle. It provides real-time status updates, automates claim evaluations using predefined rules, and generates detailed reports for agents and customers.
-
-The application is designed using a **monolithic architecture**, ensuring simplicity in deployment, maintenance, and development.
-
----
-
-## 🎯 Key Objectives
-
-- Automate insurance claims processing
-- Provide real-time claim status tracking
-- Centralize data from multiple sources
-- Enable rule-based claim evaluation
-- Generate reports for agents and clients
-
----
-
-## 🚀 Features
-
-- 🔹 End-to-end claims lifecycle management  
-- 🔹 Real-time claim status updates  
-- 🔹 Rule-based claim validation and processing  
-- 🔹 Role-based access control  
-- 🔹 Detailed reporting and analytics  
+It integrates data from multiple sources and provides real-time claim tracking, automated evaluation, and detailed reporting.
 
 ---
 
 ## 🏗️ Project Architecture
 
+![Architecture Diagram](./architecture.png)
+
+The system follows a **monolithic architecture**, where all components are part of a single deployable unit.
+
+---
+
 ### 🖥️ Client Side
-- Frontend built using **Angular 10**
-- Developed and maintained by a dedicated frontend team
-- Communicates with backend APIs
+- Frontend built using **React**
+- Communicates with backend via REST APIs
 
 ---
 
 ### ⚙️ Monolithic Backend
 
-The application is built as a **single unified codebase**, where all modules are tightly integrated and deployed together.
+All functionalities are tightly integrated into one application:
 
 #### 🔹 Claims Processing Module
-- Handles claim validation, processing, and status updates
+- Handles claim validation, processing, and updates
 
 #### 🔹 User Management Module
-- Manages authentication and user accounts  
-- Implements role-based access control
+- Manages authentication and role-based access
 
 #### 🔹 Reporting Module
-- Generates claim reports and analytics for business insights
+- Generates claim reports and analytics
 
 ---
 
 ### 🗄️ Database
 - Uses **MySQL**
-- Supports complex queries and structured insurance data
+- Centralized database for all modules
 
 ---
 
 ### ⚡ Cache Mechanism
-- Uses **Redis**
-- Caches frequently accessed data:
+- Uses **Memcached**
+- Stores frequently accessed data like:
   - Claim status
   - Policy details
-  - User profiles
-
----
-
-### 📜 Logging & Monitoring
-- **Log4j2** for application logging  
-- Integrated with **Splunk** for:
-  - Log analysis  
-  - Real-time monitoring  
-  - Visualization  
-
----
-
-### 🔐 Security
-- Implements **OAuth 2.0**
-- Enables secure authentication and authorization
-- Supports login via external identity providers
+  - User sessions
 
 ---
 
 ### 📩 Messaging System
 - Uses **Apache Kafka**
-- Supports:
-  - Real-time notifications (claim received, approved, rejected)
-  - Asynchronous communication
+- Enables:
+  - Real-time notifications
+  - Asynchronous processing
+
+---
+
+### 🔐 Security
+- Implements **OAuth 2.0** for secure authentication and authorization
+
+---
+
+### 📜 Logging & Monitoring
+- **Log4j2** for logging  
+- Integrated with **Splunk** for monitoring and analytics  
 
 ---
 
 ### 🚀 Deployment & Operations
 
 #### 🐳 Containerization
-- Uses **Docker** for packaging the application
+- Docker for packaging the application
 
 #### ☸️ Orchestration
-- Uses **Kubernetes** for deployment and scaling
+- Kubernetes for managing containers
 
-#### 🔄 CI/CD Pipeline
-- **Jenkins** for automated build, test, and deployment
+#### 🔄 CI/CD
+- Jenkins for automated pipelines
 
 #### 🧑‍💻 Version Control
-- **GitLab** for source code management and collaboration
+- GitLab for collaboration
 
 ---
